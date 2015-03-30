@@ -3,7 +3,6 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-jscs');
 
   grunt.initConfig({
     jshint: {
@@ -19,20 +18,9 @@ module.exports = function(grunt) {
       all: {
         src: ['test/**/*.js']
       }
-    },
-
-    jscs: {
-      all: {
-        options: {
-          'preset': 'google'
-        },
-        files: {
-          src: ['Gruntfile.js', 'test/http_server_test.js', 'http_server.js']
-        }
-      }
     }
   });
 
-  grunt.registerTask('test', ['jshint', 'simplemocha', 'jscs']);
+  grunt.registerTask('test', ['jshint', 'simplemocha']);
   grunt.registerTask('default', ['test']);
 };
